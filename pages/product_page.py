@@ -20,3 +20,13 @@ class ProductPage(BasePage):
         ).text == self.browser.find_element(
             *ProductPageLocators.product_cost
         ).text, 'Цена товара не совпадает'
+
+    def should_not_be_success_message(self):
+        assert self.is_not_element_present(
+            *ProductPageLocators.success_message
+        ), "Success message is presented, but should not be"
+
+    def success_message_should_dissapear(self):
+        assert self.is_disappeared(
+            *ProductPageLocators.success_message
+        ), "Сообщение не пропало, хотя должно было"

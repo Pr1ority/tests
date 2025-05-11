@@ -1,5 +1,5 @@
 from .base_page import BasePage
-from .locators import LoginPageLocatots, MainPageLocators
+from .locators import LoginPageLocatots, BasePageLocators
 
 
 class LoginPage(BasePage):
@@ -25,5 +25,5 @@ class LoginPage(BasePage):
         ), 'Отсутствует форма регистрации'
 
     def go_to_login_page(self):
-        link = self.browser.find_element(*MainPageLocators.LOGIN_LINK)
+        link = self.browser.find_element(*BasePageLocators.login_link)
         link.click()
