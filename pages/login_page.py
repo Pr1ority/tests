@@ -23,7 +23,3 @@ class LoginPage(BasePage):
         assert self.is_element_present(
             *LoginPageLocatots.register_form
         ), 'Отсутствует форма регистрации'
-
-    def go_to_login_page(self):
-        link = self.browser.find_element(*BasePageLocators.login_link)
-        link.click()
