@@ -1,6 +1,7 @@
 import time
 
 import pytest
+import allure
 
 from .pages.product_page import ProductPage
 from .pages.basket_page import BasketPage
@@ -96,6 +97,7 @@ def test_guest_should_see_login_link_on_product_page(browser):
 
 
 @pytest.mark.need_review
+@allure.story('Тест, что переходит на страницу логина')
 def test_guest_can_go_to_login_page_from_product_page(browser):
     page = ProductPage(
         browser,
@@ -107,6 +109,7 @@ def test_guest_can_go_to_login_page_from_product_page(browser):
 
 
 @pytest.mark.need_review
+@allure.severity(allure.severity_level.CRITICAL)
 def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
     page = ProductPage(
         browser,
@@ -114,7 +117,8 @@ def test_guest_cant_see_product_in_basket_opened_from_product_page(browser):
         'catalogue/the-city-and-the-stars_95/'
     )
     page.open()
-    page.go_to_basket_page()
+    with allure.step('Переход на страницу корзины'):
+        page.go_to_basket_page()
     basket_page = BasketPage(browser, browser.current_url)
     basket_page.basket_should_be_empty()
     basket_page.should_be_basket_empty_text()

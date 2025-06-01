@@ -1,0 +1,4 @@
+[
+  {"name": "Flaky Tests", "matchedStatuses": ["failed"], "messageRegex": "AssertionError"},
+  {"name": "Infrastructure", "matchedStatuses": ["broken"], "traceRegex": "java.net.ConnectException"}
+]
