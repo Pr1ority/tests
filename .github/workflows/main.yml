@@ -4,6 +4,7 @@ on: push
 jobs:
 
   allure:
+    runs-on: ubuntu-latest
     steps:
       - name: Install Allure
         run: npm install -g allure-commandline
